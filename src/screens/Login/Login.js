@@ -5,6 +5,7 @@ import CreateUser from './CreateUser';
 import PasswordLost from './PasswordLost';
 import ResetPassword from './ResetPassword';
 import { UserContext } from '../../providers/UserContext';
+import styles from './Login.module.css';
 
 const Login = () => {
   const { login } = React.useContext(UserContext);
@@ -14,14 +15,16 @@ const Login = () => {
   }
 
   return (
-    <div>
-      <Routes>
-        <Route path="/" element={<LoginForm />} />
-        <Route path="/criar" element={<CreateUser />} />
-        <Route path="/perdeu" element={<PasswordLost />} />
-        <Route path="/resetar" element={<ResetPassword />} />
-      </Routes>
-    </div>
+    <section className={styles.login}>
+      <div className={styles.forms}>
+        <Routes>
+          <Route path="/" element={<LoginForm />} />
+          <Route path="/criar" element={<CreateUser />} />
+          <Route path="/perdeu" element={<PasswordLost />} />
+          <Route path="/resetar" element={<ResetPassword />} />
+        </Routes>
+      </div>
+    </section>
   );
 };
 
